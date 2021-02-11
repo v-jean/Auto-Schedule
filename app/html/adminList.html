@@ -1,0 +1,63 @@
+{% extends 'layout.html' %}
+{% block title %}
+<title>Admin</title>
+{% endblock %}
+
+{% block variable_content %}
+<div class="row justify-content-md-center mb-3">
+    <a href="{{ url_for('main.admin') }}" class="btn btn-outline-info">Back to panel</a>
+</div>
+
+<div class="row">
+    <div class="col-6">
+        <div class="container">
+            <h3 class="lead">Users:</h3>
+            <hr>
+            {% for user in users %}
+            <div class="card border-info text-dark bg-light mb-3" style="max-width: 18rem;">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-6">{{user.name}}</div>
+                        <div class="col-6 flex-row-reverse">
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-sm btn-danger">Delete</button>
+                                <button type="button" class="btn btn-sm btn-warning">Edit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                </div>
+            </div>
+            {% endfor %}
+            <hr>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="container">
+            <h3 class="lead">Courses:</h3>
+            <hr>
+            {% for course in courses %}
+            <div class="card border-info text-dark bg-light mb-3" style="max-width: 18rem;">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-6">{{course.name}}</div>
+                        <div class="col-6 flex-row-reverse">
+                            <div class="btn-group" role="group">
+                                <form method="POST" action="{{url_for('main.delete_course', id=course.id)}}">
+                                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                </form>
+                                <button type="button" class="btn btn-sm btn-warning">Edit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                </div>
+            </div>
+            {% endfor %}
+            <hr>
+        </div>
+    </div>
+</div>
+{% endblock %}

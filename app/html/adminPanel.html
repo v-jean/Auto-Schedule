@@ -1,0 +1,177 @@
+{% extends 'layout.html' %}
+{% block title %}
+<title>Admin</title>
+{% endblock %}
+
+{% block variable_content %}
+<div class="row justify-content-md-center mb-3">
+    <a href="{{ url_for('main.data_list') }}" class="btn btn-outline-info">Show lists</a>
+</div>
+
+<div class="row">
+    <div class="col-6">
+        <div class="container">
+            <h3 class="lead">Add user</h3>
+            <hr>
+            <form method="POST" action="{{ url_for('main.add_user') }}">
+                <div class="mb-3">
+                    <label for="user_name" class="form-label">Name</label>
+                    <input required name="user_name" type="text" class="form-control" id="user_name">
+                </div>
+                <button type="submit" class="btn btn-outline-success">Add</button>
+            </form>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="container">
+            <h3 class="lead">Add course</h3>
+            <hr>
+            <form method="POST" action="{{ url_for('main.add_course') }}">
+                <div class="row">
+                    <div class="mb-3 col-6">
+                        <label for="course_name" class="form-label">Name</label>
+                        <input required name="course_name" type="text" class="form-control" id="course_name">
+                    </div>
+                    <div class="mb-3 col-6">
+                        <label for="section" class="form-label">Section</label>
+                        <input required name="section" type="text" class="form-control" id="section">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mb-3 col-3">
+                        <label for="start1" class="form-label">Start 1</label>
+                        <select name="start1" class="form-control" id="start1">
+                            <option selected value="0">None</option>
+                            <option value="8">8:00</option>
+                            <option value="9">9:00</option>
+                            <option value="10">10:00</option>
+                            <option value="11">11:00</option>
+                            <option value="12">12:00</option>
+                            <option value="13">13:00</option>
+                            <option value="14">14:00</option>
+                            <option value="15">15:00</option>
+                            <option value="16">16:00</option>
+                            <option value="17">17:00</option>
+                            <option value="18">18:00</option>
+                            <option value="19">19:00</option>
+                            <option value="20">20:00</option>
+                            <option value="21">21:00</option>
+                            <option value="22">22:00</option>
+                        </select>
+                    </div>
+                    <div class="mb-3 col-3">
+                        <label for="end1" class="form-label">End 1</label>
+                        <select name="end1" class="form-control" id="end1">
+                            <option selected value="0">None</option>
+                            <option value="8">8:00</option>
+                            <option value="9">9:00</option>
+                            <option value="10">10:00</option>
+                            <option value="11">11:00</option>
+                            <option value="12">12:00</option>
+                            <option value="13">13:00</option>
+                            <option value="14">14:00</option>
+                            <option value="15">15:00</option>
+                            <option value="16">16:00</option>
+                            <option value="17">17:00</option>
+                            <option value="18">18:00</option>
+                            <option value="19">19:00</option>
+                            <option value="20">20:00</option>
+                            <option value="21">21:00</option>
+                            <option value="22">22:00</option>
+                        </select>
+                    </div>
+                    <div class="mb-3 col-3">
+                        <label for="day1" class="form-label">Day 1</label>
+                        <select name="day1" class="form-control" id="day1">
+                            <option selected value="0">None</option>
+                            <option value="1">Monday</option>
+                            <option value="2">Twesday</option>
+                            <option value="3">Wednesday</option>
+                            <option value="4">Thursday</option>
+                            <option value="5">Friday</option>
+                            <option value="6">Saturday</option>
+                        </select>
+                    </div>
+                    <div class="mb-3 col-3">
+                        <label for="type1" class="form-label">Type</label>
+                        <select name="type1" class="form-control" id="type1">
+                            <option selected value="Theory">Theory</option>
+                            <option value="Practice">Practice</option>
+                            <option value="Laboratory">Laboratory</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mb-3 col-3">
+                        <label for="start2" class="form-label">Start 2</label>
+                        <select name="start2" class="form-control" id="start2">
+                            <option selected value="0">None</option>
+                            <option value="8">8:00</option>
+                            <option value="9">9:00</option>
+                            <option value="10">10:00</option>
+                            <option value="11">11:00</option>
+                            <option value="12">12:00</option>
+                            <option value="13">13:00</option>
+                            <option value="14">14:00</option>
+                            <option value="15">15:00</option>
+                            <option value="16">16:00</option>
+                            <option value="17">17:00</option>
+                            <option value="18">18:00</option>
+                            <option value="19">19:00</option>
+                            <option value="20">20:00</option>
+                            <option value="21">21:00</option>
+                            <option value="22">22:00</option>
+                        </select>
+                    </div>
+                    <div class="mb-3 col-3">
+                        <label for="end2" class="form-label">End 2</label>
+                        <select name="end2" class="form-control" id="end2">
+                            <option selected value="0">None</option>
+                            <option value="8">8:00</option>
+                            <option value="9">9:00</option>
+                            <option value="10">10:00</option>
+                            <option value="11">11:00</option>
+                            <option value="12">12:00</option>
+                            <option value="13">13:00</option>
+                            <option value="14">14:00</option>
+                            <option value="15">15:00</option>
+                            <option value="16">16:00</option>
+                            <option value="17">17:00</option>
+                            <option value="18">18:00</option>
+                            <option value="19">19:00</option>
+                            <option value="20">20:00</option>
+                            <option value="21">21:00</option>
+                            <option value="22">22:00</option>
+                        </select>
+                    </div>
+                    <div class="mb-3 col-3">
+                        <label for="day2" class="form-label">Day 2</label>
+                        <select name="day2" class="form-control" id="day2">
+                            <option selected value="0">None</option>
+                            <option value="1">Monday</option>
+                            <option value="2">Twesday</option>
+                            <option value="3">Wednesday</option>
+                            <option value="4">Thursday</option>
+                            <option value="5">Friday</option>
+                            <option value="6">Saturday</option>
+                        </select>
+                    </div>
+                    <div class="mb-3 col-3">
+                        <label for="type2" class="form-label">Type</label>
+                        <select name="type2" class="form-control" id="type2">
+                            <option selected value="Theory">Theory</option>
+                            <option value="Practice">Practice</option>
+                            <option value="Laboratory">Laboratory</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-3 form-check">
+                    <input name="split_time" type="checkbox" class="form-check-input" id="split_time">
+                    <label class="form-check-label" for="split_time">Split time</label>
+                </div>
+                <button type="submit" class="btn btn-outline-success">Add</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
