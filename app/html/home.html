@@ -3,6 +3,14 @@
 <title>Horarios</title>
 {% endblock %}
 
+{% for message in get_flashed_messages() %}
+<div class="mt-1 row justify-content-center">
+    <div class="alert alert-danger" role="alert">
+        {{message}}
+    </div>
+</div>
+{% endfor %}
+
 {% block variable_content %}
 {% include 'coursesList.html' %}
 {% endblock %}

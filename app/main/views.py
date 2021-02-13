@@ -2,6 +2,7 @@ from . import main_bp
 from flask import session, render_template, request, flash, redirect, url_for
 from .. import db
 from ..models import *
+from flask_login import login_required, current_user
 
 #user routes
 @main_bp.route("/", methods=["GET","POST"])
@@ -10,15 +11,27 @@ def home():
     return render_template("home.html", courses=courses)
 
 @main_bp.route("/mis_cursos")
+@login_required
 def my_courses():
     courses = Course.query.all()
-    return render_template("myCourses.html", courses=courses)
+    matches = current_user.matches
+    return render_template("myCourses.html", courses=matches)
 
 #-----in construction------
 @main_bp.route("/select_course/<int:id>", methods=["POST", "GET"])
+@login_required
 def select_course(id):
     course = Course.query.filter_by(id=id).first()
-    print(course)
+    course.users.append(current_user)
+    db.session.commit()
+    return redirect(url_for("main.home"))
+
+@main_bp.route("/deselect_course/<int:id>", methods=["POST", "GET"])
+@login_required
+def deselect_course(id):
+    course = Course.query.filter_by(id=id).first()
+    current_user.matches.remove(course)
+    db.session.commit()
     return redirect(url_for("main.home"))
 
 #admin routes
@@ -34,6 +47,14 @@ def add_user():
         db.session.add(user)
         db.session.commit()
         return redirect(url_for("main.admin"))
+
+@main_bp.route("/admin/delete_user/<int:id>", methods=["GET", "POST"])
+def delete_user(id):
+    if request.method == "POST":
+        user = User.query.filter_by(id=id).first()
+        db.session.delete(user)
+        db.session.commit()
+        return redirect(url_for("main.data_list"))
 
 @main_bp.route("/admin/add_course", methods=["GET","POST"])
 def add_course():
@@ -62,7 +83,6 @@ def add_course():
 def delete_course(id):
     if request.method == "POST":
         course = Course.query.filter_by(id=id).first()
-        print(course)
         db.session.delete(course)
         db.session.commit()
         return redirect(url_for("main.data_list"))

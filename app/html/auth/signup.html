@@ -1,0 +1,75 @@
+{% extends 'layout.html' %}
+{% block title %}
+<title>Horarios</title>
+{% endblock %}
+
+{% block jumbotron %}
+{% endblock %}
+
+{% block variable_content %}
+
+<div class="container">
+    <h3 class="fs-3 mt-5 text-center fw-lighter" style="color:darkslateblue">Registrarse</h3>
+</div>
+<div class="container-sm">
+    <div class="mt-4 row justify-content-center">
+        <form class="col-3" method="POST" action="{{url_for('auth.signup')}}">
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input required name="email" type="email" class="form-control" id="email">
+            </div>
+            <div class="mb-3">
+                <label for="username" class="form-label">Nombre de usuario</label>
+                <input required name="username" type="text" class="form-control" id="username">
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Contraseña</label>
+                <input minlength="8" required name="password" type="password" class="form-control" id="password">
+            </div>
+            <div class="mb-3">
+                <label for="confirm_password" class="form-label">Confirmación de contraseña</label>
+                <input minlength="8" required name="confirm_password" type="password" class="form-control"
+                    id="confirm_password">
+            </div>
+            <hr>
+            {% for message in get_flashed_messages() %}
+            <div class="mt-1 row justify-content-center">
+                <div class="alert alert-danger" role="alert">
+                    {{message}}
+                </div>
+            </div>
+            {% endfor %}
+            <div class="mb-3 text-center">
+                <button type="submit" class="btn btn-info">Registrar</button>
+            </div>
+            <div class="mb-2 row justify-content-center">
+                <a href="{{url_for('auth.login')}}" class="text-center" style="font-size: 0.875em;"><u>Ya tengo una
+                        cuenta</u></a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+    .form-control:focus {
+        border-color: blueviolet;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(117, 68, 136, 0.6);
+    }
+</style>
+
+<script>
+    var password = document.getElementById("password")
+        , confirm_password = document.getElementById("confirm_password");
+
+    function validatePassword() {
+        if (password.value != confirm_password.value) {
+            confirm_password.setCustomValidity("Las contraseñas deben coincidir");
+        } else {
+            confirm_password.setCustomValidity('');
+        }
+    }
+
+    password.onchange = validatePassword;
+    confirm_password.onkeyup = validatePassword;
+</script>
+{% endblock %}

@@ -29,9 +29,15 @@
                     </p>
                     {% endif %}
                     <div class="row justify-content-center">
+                        {% if course in current_user.matches %}
+                        <form method="POST" action="{{url_for('main.deselect_course', id=course.id)}}">
+                            <button type="submit" class="btn btn-sm btn-danger">Quitar de mis cursos</button>
+                        </form>
+                        {% else %}
                         <form method="POST" action="{{url_for('main.select_course', id=course.id)}}">
                             <button type="submit" class="btn btn-sm btn-info">Añadir a mis cursos</button>
                         </form>
+                        {% endif %}
                     </div>
                 </div>
             </div>

@@ -1,18 +1,36 @@
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color:darkslateblue">
-    <div class="container-fluid">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <a class="text-light navbar-brand">Horarios automáicos</a>
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="btn btn-outline-ligth text-light nav-link active" aria-current="page" href="{{url_for('main.home')}}">Lista de cursos</a>
-          </li>
-          <li class="nav-item">
-            <a class="btn btn-outline-ligth text-light nav-link" href="{{url_for('main.my_courses')}}">Mis cursos</a>
-          </li>
-        </ul>
-      </div>
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
+      aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <a class="text-light navbar-brand">Horarios automáicos</a>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="btn btn-outline-ligth text-light nav-link active" aria-current="page"
+            href="{{url_for('main.home')}}">Lista de cursos</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-outline-ligth text-light nav-link" href="{{url_for('main.my_courses')}}">Mis cursos</a>
+        </li>
+      </ul>
     </div>
-  </nav>
+    {% if current_user.is_authenticated %}
+    <div class="d-flex nav-item text-light">
+      ¡Bienvenido {{current_user.username}}!
+    </div>
+    <div class="d-flex nav-item text-light ml-3">
+      <form action="{{url_for('auth.logout')}}">
+        <button class="btn btn-outline-info">Cerrar sesión</button>
+      </form>
+    </div>
+    {% else %}
+    <div class="d-flex nav-item">
+      <a href="{{url_for('auth.login')}}" class="btn btn-outline-primary text-light mr-1">Ingresar</a>
+      <a href="{{url_for('auth.signup')}}" class="btn btn-outline-primary text-light">Registrar</a>
+    </div>
+    {% endif %}
+  </div>
+</nav>

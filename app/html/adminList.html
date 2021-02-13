@@ -17,10 +17,12 @@
             <div class="card border-info text-dark bg-light mb-3" style="max-width: 18rem;">
                 <div class="card-header">
                     <div class="row">
-                        <div class="col-6">{{user.name}}</div>
+                        <div class="col-6">{{user.username}}</div>
                         <div class="col-6 flex-row-reverse">
                             <div class="btn-group" role="group">
-                                <button type="button" class="btn btn-sm btn-danger">Delete</button>
+                                <form method="POST" action="{{url_for('main.delete_user', id=user.id)}}">
+                                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                </form>
                                 <button type="button" class="btn btn-sm btn-warning">Edit</button>
                             </div>
                         </div>
