@@ -3,6 +3,7 @@ from flask import session, render_template, request, flash, redirect, url_for
 from .. import db
 from ..models import *
 from flask_login import login_required, current_user
+from .utils import remove_conflicts, find_schedules
 
 #user routes
 @main_bp.route("/", methods=["GET","POST"])
@@ -13,11 +14,20 @@ def home():
 @main_bp.route("/mis_cursos")
 @login_required
 def my_courses():
-    courses = Course.query.all()
     matches = current_user.matches
     return render_template("myCourses.html", courses=matches)
 
-#-----in construction------
+@main_bp.route("/generate", methods=["GET","POST"])
+@login_required
+def generate_schedule():
+    if request.method == "POST":
+        courses = current_user.matches
+        fixed = remove_conflicts(courses)
+        schedules_set = find_schedules(courses, fixed)
+        #find_schedules(courses, fixed)
+
+        return render_template("myCourses.html", courses=courses, courses2=schedules_set)
+
 @main_bp.route("/select_course/<int:id>", methods=["POST", "GET"])
 @login_required
 def select_course(id):
