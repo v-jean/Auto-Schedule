@@ -40,10 +40,10 @@ def remove_conflicts(courses):
                         final.insert(j, None)
                         continue
     final = [n for n in final if n is not None]
+    #print(final)
     return final
 
 def check_conflicts(courses):
-    final = courses.copy()
     for i in range(0, len(courses)):
         for j in range(0, len(courses)):
             if courses[i] != courses[j]:
@@ -67,11 +67,18 @@ def check_conflicts(courses):
                         return False
                     if courses[j].start2 >= courses[i].start2 and courses[j].start2 < courses[i].end2:
                         return False
+                if courses[i].name == courses[j].name:
+                    return False
+
     return True
 
-def find_schedules(courses, fixed):
+def find_schedules2(courses, fixed):
     final = [fixed]
+    print(fixed)
+    print("***************")
     to_join = [n for n in courses if not n in fixed]
+    print(to_join)
+    print("***************")
     pivot = final.copy()
     
     for joined in to_join:
@@ -88,4 +95,32 @@ def find_schedules(courses, fixed):
         if check_conflicts(a):
             final = pivot.copy()
     #print(len(final))
+    print(final)
     return final
+
+
+def find_schedules(courses):
+    final = [[courses[0]]]
+    to_join = courses[1:].copy()
+    #print(to_join)
+    #print("***************")
+    pivot = final.copy()
+    
+    for joined in to_join:
+        pivot.append([joined])
+        for i in final:
+            #print(i)
+            #print("*****************")
+            a = i.copy()
+            a.append(joined)
+            pivot.append(a)
+        final = pivot.copy()
+        
+    final_without_conflicts = [ x for x in final if check_conflicts(x) ]
+    
+    #print(len(final_without_conflicts))
+    #print(final_without_conflicts)
+    return final_without_conflicts
+
+def sortByElements(elem):
+    return(len(elem))

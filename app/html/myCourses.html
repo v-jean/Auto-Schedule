@@ -1,4 +1,31 @@
 {% extends 'layout.html' %}
+
+{% block head_content %}
+{{ super() }}
+<style>
+  .general-schedule {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #FFFFFF;
+    margin-bottom: 20px;
+  }
+
+  .table-schedule {
+    border: 1px solid darkslateblue;
+    text-align: left;
+    padding: 2px;
+    font-size: 10px;
+    text-align: center;
+    width: 65px;
+  }
+
+  .table-schedule-numbers {
+    width: 65px;
+  }
+</style>
+{% endblock %}
+
 {% block title %}
 <title>Horarios</title>
 {% endblock %}
@@ -7,7 +34,6 @@
 {% endblock %}
 
 {% block variable_content %}
-<div class="container-fluid mt-3">
   <div class="row">
     <div class="col-3">
       <h3 class="lead">Mis cursos:</h3>
@@ -16,65 +42,56 @@
           <tr>
             <th scope="col">Curso</th>
             <th scope="col">Sección</th>
+            <th scope="col">Horario</th>
           </tr>
         </thead>
         <tbody class="">
           {% for course in courses %}
           <tr>
-            <td>{{course.name}}</td>
-            <td class="text-center">{{course.section}}</td>
+            <td style="font-size: 11px;">{{course.name}}</td>
+            <td class="text-center" style="font-size: 11px;">{{course.section}}</td>
+            <td class="text-center" style="font-size: 10px;">
+              <div class="col" style="width: 76px;">
+                <div class="row">
+                  {% if course.day1 == 1 %} Lu
+                  {% elif course.day1 == 2 %} Ma
+                  {% elif course.day1 == 3 %} Mi
+                  {% elif course.day1 == 4 %} Ju
+                  {% elif course.day1 == 5 %} Vi
+                  {% elif course.day1 == 6 %} Sa
+                  {% endif %}
+                  {{course.start1}}:00 - {{course.end1}}:00
+                </div>
+                <div class="row">
+                  {% if course.day2 != 0 %}
+                  {% if course.day2 == 1 %} Lu
+                  {% elif course.day2 == 2 %} Ma
+                  {% elif course.day2 == 3 %} Mi
+                  {% elif course.day2 == 4 %} Ju
+                  {% elif course.day2 == 5 %} Vi
+                  {% elif course.day2 == 6 %} Sa
+                  {% endif %}
+                  {{course.start2}}:00 - {{course.end2}}:00
+                  {% endif %}
+                </div>
+              </div>
+            </td>
           </tr>
           {% endfor %}
         </tbody>
       </table>
       <div class="row justify-content-center">
+        {% if can_generate %}
         <form method="POST" action="{{url_for('main.generate_schedule')}}">
           <button type="submit" class="btn btn-outline-info">
             Generar posibles horarios
           </button>
         </form>
-      </div>
-    </div>
-    <div class="col-9 mt-4">
-      <div class="jumbotron">
-        {% if courses2 %}
-        {% for set in courses2 %}
-        {% for course in set %}
-        <div class="col-auto mb-3">
-          <div class="card" style="width: 18rem; height: 8rem;">
-            <div class="card-body">
-              <p>{{course.name}} ({{course.section}})</p>
-              <p class="card-text">
-                {% if course.day1 == 1 %} Lunes
-                {% elif course.day1 == 2 %} Martes
-                {% elif course.day1 == 3 %} Miércoles
-                {% elif course.day1 == 4 %} Jueves
-                {% elif course.day1 == 5 %} Viernes
-                {% elif course.day1 == 6 %} Sábado
-                {% endif %}
-                {{course.start1}}:00 - {{course.end1}}:00 ({{course.type1}})
-              </p>
-              {% if course.day2 != 0 %}
-              <p class="card-text">
-                {% if course.day2 == 1 %} Lunes
-                {% elif course.day2 == 2 %} Martes
-                {% elif course.day2 == 3 %} Miércoles
-                {% elif course.day2 == 4 %} Jueves
-                {% elif course.day2 == 5 %} Viernes
-                {% elif course.day2 == 6 %} Sábado
-                {% endif %}
-                {{course.start2}}:00 - {{course.end2}}:00 ({{course.type2}})
-              </p>
-              {% endif %}
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-        <hr>
-        {% endfor %}
         {% endif %}
       </div>
     </div>
+    <div class="col-9 mt-4">
+      {% include 'schedules2.html' %}
+    </div>
   </div>
-</div>
 {% endblock %}

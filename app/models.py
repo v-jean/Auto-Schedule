@@ -44,7 +44,7 @@ class Course(db.Model):
     section = db.Column(db.String(3))
 
     def __repr__(self):
-        return "<Type object %s>" % self.name
+        return "<Type object %s (%s)>" % (self.name, self.section)
 
 from . import login_manager
 

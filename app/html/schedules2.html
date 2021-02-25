@@ -1,0 +1,143 @@
+<div class="jumbotron">
+    {% if courses2 %}
+    {% for set in courses2 %}
+    <table class="general-schedule">
+        <tr>
+            <th class="table-schedule table-schedule-numbers">Hora</th>
+            <th class="table-schedule">Lunes</th>
+            <th class="table-schedule">Martes</th>
+            <th class="table-schedule">Miércoles</th>
+            <th class="table-schedule">Jueves</th>
+            <th class="table-schedule">Viernes</th>
+            <th class="table-schedule">Sábado</th>
+        </tr>
+        <tr>
+            <td class="table-schedule">8:00 - 9:00</td>
+            {% if set["lun_8"] %}<td class="table-schedule">{{set["lun_8"].name}} ({{set["lun_8"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["mar_8"] %}<td class="table-schedule">{{set["mar_8"].name}} ({{set["mar_8"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["mie_8"] %}<td class="table-schedule">{{set["mie_8"].name}} ({{set["mie_8"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["jue_8"] %}<td class="table-schedule">{{set["jue_8"].name}} ({{set["jue_8"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["vie_8"] %}<td class="table-schedule">{{set["vie_8"].name}} ({{set["vie_8"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["sab_8"] %}<td class="table-schedule">{{set["sab_8"].name}} ({{set["sab_8"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+        </tr>
+        <tr>
+            <td class="table-schedule">9:00 - 10:00</td>
+            {% if set["lun_9"] %}<td class="table-schedule">{{set["lun_9"].name}} ({{set["lun_9"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["mar_9"] %}<td class="table-schedule">{{set["mar_9"].name}} ({{set["mar_9"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["mie_9"] %}<td class="table-schedule">{{set["mie_9"].name}} ({{set["mie_9"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["jue_9"] %}<td class="table-schedule">{{set["jue_9"].name}} ({{set["jue_9"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["vie_9"] %}<td class="table-schedule">{{set["vie_9"].name}} ({{set["vie_9"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["sab_9"] %}<td class="table-schedule">{{set["sab_9"].name}} ({{set["sab_9"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+        </tr>
+        <tr>
+            <td class="table-schedule">10:00 - 11:00</td>
+            {% if set["lun_10"] %}<td class="table-schedule">{{set["lun_10"].name}} ({{set["lun_10"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["mar_10"] %}<td class="table-schedule">{{set["mar_10"].name}} ({{set["mar_10"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["mie_10"] %}<td class="table-schedule">{{set["mie_10"].name}} ({{set["mie_10"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["jue_10"] %}<td class="table-schedule">{{set["jue_10"].name}} ({{set["jue_10"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["vie_10"] %}<td class="table-schedule">{{set["vie_10"].name}} ({{set["vie_10"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["sab_10"] %}<td class="table-schedule">{{set["sab_10"].name}} ({{set["sab_10"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+        </tr>
+        <tr>
+            <td class="table-schedule">11:00 - 12:00</td>
+            {% if set["lun_11"] %}<td class="table-schedule">{{set["lun_11"].name}} ({{set["lun_11"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["mar_11"] %}<td class="table-schedule">{{set["mar_11"].name}} ({{set["mar_11"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["mie_11"] %}<td class="table-schedule">{{set["mie_11"].name}} ({{set["mie_11"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["jue_11"] %}<td class="table-schedule">{{set["jue_11"].name}} ({{set["jue_11"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["vie_11"] %}<td class="table-schedule">{{set["vie_11"].name}} ({{set["vie_11"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["sab_11"] %}<td class="table-schedule">{{set["sab_11"].name}} ({{set["sab_11"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+        </tr>
+        <tr>
+            <td class="table-schedule">12:00 - 1:00</td>
+            {% if set["lun_12"] %}<td class="table-schedule">{{set["lun_12"].name}} ({{set["lun_12"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["mar_12"] %}<td class="table-schedule">{{set["mar_12"].name}} ({{set["mar_12"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["mie_12"] %}<td class="table-schedule">{{set["mie_12"].name}} ({{set["mie_12"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["jue_12"] %}<td class="table-schedule">{{set["jue_12"].name}} ({{set["jue_12"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["vie_12"] %}<td class="table-schedule">{{set["vie_12"].name}} ({{set["vie_12"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["sab_12"] %}<td class="table-schedule">{{set["sab_12"].name}} ({{set["sab_12"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+        </tr>
+        <tr>
+            <td class="table-schedule">1:00 - 2:00</td>
+            {% if set["lun_13"] %}<td class="table-schedule">{{set["lun_13"].name}} ({{set["lun_13"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["mar_13"] %}<td class="table-schedule">{{set["mar_13"].name}} ({{set["mar_13"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["mie_13"] %}<td class="table-schedule">{{set["mie_13"].name}} ({{set["mie_13"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["jue_13"] %}<td class="table-schedule">{{set["jue_13"].name}} ({{set["jue_13"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["vie_13"] %}<td class="table-schedule">{{set["vie_13"].name}} ({{set["vie_13"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["sab_13"] %}<td class="table-schedule">{{set["sab_13"].name}} ({{set["sab_13"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+        </tr>
+        <tr>
+            <td class="table-schedule">2:00 - 3:00</td>
+            {% if set["lun_14"] %}<td class="table-schedule">{{set["lun_14"].name}} ({{set["lun_14"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["mar_14"] %}<td class="table-schedule">{{set["mar_14"].name}} ({{set["mar_14"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["mie_14"] %}<td class="table-schedule">{{set["mie_14"].name}} ({{set["mie_14"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["jue_14"] %}<td class="table-schedule">{{set["jue_14"].name}} ({{set["jue_14"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["vie_14"] %}<td class="table-schedule">{{set["vie_14"].name}} ({{set["vie_14"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["sab_14"] %}<td class="table-schedule">{{set["sab_14"].name}} ({{set["sab_14"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+        </tr>
+        <tr>
+            <td class="table-schedule">3:00 - 4:00</td>
+            {% if set["lun_15"] %}<td class="table-schedule">{{set["lun_15"].name}} ({{set["lun_15"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["mar_15"] %}<td class="table-schedule">{{set["mar_15"].name}} ({{set["mar_15"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["mie_15"] %}<td class="table-schedule">{{set["mie_15"].name}} ({{set["mie_15"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["jue_15"] %}<td class="table-schedule">{{set["jue_15"].name}} ({{set["jue_15"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["vie_15"] %}<td class="table-schedule">{{set["vie_15"].name}} ({{set["vie_15"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["sab_15"] %}<td class="table-schedule">{{set["sab_15"].name}} ({{set["sab_15"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+        </tr>
+        <tr>
+            <td class="table-schedule">4:00 - 5:00</td>
+            {% if set["lun_16"] %}<td class="table-schedule">{{set["lun_16"].name}} ({{set["lun_16"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["mar_16"] %}<td class="table-schedule">{{set["mar_16"].name}} ({{set["mar_16"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["mie_16"] %}<td class="table-schedule">{{set["mie_16"].name}} ({{set["mie_16"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["jue_16"] %}<td class="table-schedule">{{set["jue_16"].name}} ({{set["jue_16"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["vie_16"] %}<td class="table-schedule">{{set["vie_16"].name}} ({{set["vie_16"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["sab_16"] %}<td class="table-schedule">{{set["sab_16"].name}} ({{set["sab_16"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+        </tr>
+        <tr>
+            <td class="table-schedule">5:00 - 6:00</td>
+            {% if set["lun_17"] %}<td class="table-schedule">{{set["lun_17"].name}} ({{set["lun_17"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["mar_17"] %}<td class="table-schedule">{{set["mar_17"].name}} ({{set["mar_17"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["mie_17"] %}<td class="table-schedule">{{set["mie_17"].name}} ({{set["mie_17"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["jue_17"] %}<td class="table-schedule">{{set["jue_17"].name}} ({{set["jue_17"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["vie_17"] %}<td class="table-schedule">{{set["vie_17"].name}} ({{set["vie_17"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["sab_17"] %}<td class="table-schedule">{{set["sab_17"].name}} ({{set["sab_17"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+        </tr>
+        <tr>
+            <td class="table-schedule">6:00 - 7:00</td>
+            {% if set["lun_18"] %}<td class="table-schedule">{{set["lun_18"].name}} ({{set["lun_18"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["mar_18"] %}<td class="table-schedule">{{set["mar_18"].name}} ({{set["mar_18"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["mie_18"] %}<td class="table-schedule">{{set["mie_18"].name}} ({{set["mie_18"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["jue_18"] %}<td class="table-schedule">{{set["jue_18"].name}} ({{set["jue_18"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["vie_18"] %}<td class="table-schedule">{{set["vie_18"].name}} ({{set["vie_18"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["sab_18"] %}<td class="table-schedule">{{set["sab_18"].name}} ({{set["sab_18"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+        </tr>
+        <tr>
+            <td class="table-schedule">7:00 - 8:00</td>
+            {% if set["lun_19"] %}<td class="table-schedule">{{set["lun_19"].name}} ({{set["lun_19"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["mar_19"] %}<td class="table-schedule">{{set["mar_19"].name}} ({{set["mar_19"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["mie_19"] %}<td class="table-schedule">{{set["mie_19"].name}} ({{set["mie_19"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["jue_19"] %}<td class="table-schedule">{{set["jue_19"].name}} ({{set["jue_19"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["vie_19"] %}<td class="table-schedule">{{set["vie_19"].name}} ({{set["vie_19"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["sab_19"] %}<td class="table-schedule">{{set["sab_19"].name}} ({{set["sab_19"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+        </tr>
+        <tr>
+            <td class="table-schedule">8:00 - 9:00</td>
+            {% if set["lun_20"] %}<td class="table-schedule">{{set["lun_20"].name}} ({{set["lun_20"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["mar_20"] %}<td class="table-schedule">{{set["mar_20"].name}} ({{set["mar_20"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["mie_20"] %}<td class="table-schedule">{{set["mie_20"].name}} ({{set["mie_20"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["jue_20"] %}<td class="table-schedule">{{set["jue_20"].name}} ({{set["jue_20"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["vie_20"] %}<td class="table-schedule">{{set["vie_20"].name}} ({{set["vie_20"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["sab_20"] %}<td class="table-schedule">{{set["sab_20"].name}} ({{set["sab_20"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+        </tr>
+        <tr>
+            <td class="table-schedule">9:00 - 10:00</td>
+            {% if set["lun_21"] %}<td class="table-schedule">{{set["lun_21"].name}} ({{set["lun_21"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["mar_21"] %}<td class="table-schedule">{{set["mar_21"].name}} ({{set["mar_21"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["mie_21"] %}<td class="table-schedule">{{set["mie_21"].name}} ({{set["mie_21"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["jue_21"] %}<td class="table-schedule">{{set["jue_21"].name}} ({{set["jue_21"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["vie_21"] %}<td class="table-schedule">{{set["vie_21"].name}} ({{set["vie_21"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+            {% if set["sab_21"] %}<td class="table-schedule">{{set["sab_21"].name}} ({{set["sab_21"].section}})</td>{% else %}<td class="table-schedule"></td>{% endif %}
+        </tr>
+    </table>
+    {% endfor %}
+    {% endif %}
+</div>

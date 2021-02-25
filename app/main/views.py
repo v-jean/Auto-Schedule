@@ -3,7 +3,7 @@ from flask import session, render_template, request, flash, redirect, url_for
 from .. import db
 from ..models import *
 from flask_login import login_required, current_user
-from .utils import remove_conflicts, find_schedules
+from .utils import remove_conflicts, find_schedules, sortByElements
 
 #user routes
 @main_bp.route("/", methods=["GET","POST"])
@@ -15,18 +15,35 @@ def home():
 @login_required
 def my_courses():
     matches = current_user.matches
-    return render_template("myCourses.html", courses=matches)
+    op = True
+    if len(matches) == 0: op = False
+    return render_template("myCourses.html", courses=matches, can_generate=op)
 
 @main_bp.route("/generate", methods=["GET","POST"])
 @login_required
 def generate_schedule():
     if request.method == "POST":
         courses = current_user.matches
-        fixed = remove_conflicts(courses)
-        schedules_set = find_schedules(courses, fixed)
-        #find_schedules(courses, fixed)
-
-        return render_template("myCourses.html", courses=courses, courses2=schedules_set)
+        #fixed = remove_conflicts(courses)
+        schedules_set = find_schedules(courses)
+        
+        days = {1:"lun_", 2:"mar_", 3:"mie_", 4:"jue_", 5:"vie_", 6:"sab_"}
+        schedules_set_final = []
+        for i_set in schedules_set:
+            dict_set = dict()
+            for course in i_set:
+                day1 = str(days[course.day1])
+                for k in range(course.start1, course.end1):
+                    dict_set[day1+str(k)] = course
+                if course.day2 != 0:
+                    day2 = str(days[course.day2])
+                    for k in range(course.start2, course.end2):
+                        dict_set[day2+str(k)] = course
+            schedules_set_final.append(dict_set)
+        print(schedules_set_final)
+        schedules_set_final.sort(key=sortByElements, reverse=True)
+        
+        return render_template("myCourses.html", courses=courses, courses2=list(schedules_set_final))
 
 @main_bp.route("/select_course/<int:id>", methods=["POST", "GET"])
 @login_required
