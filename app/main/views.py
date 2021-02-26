@@ -40,7 +40,7 @@ def generate_schedule():
                     for k in range(course.start2, course.end2):
                         dict_set[day2+str(k)] = course
             schedules_set_final.append(dict_set)
-        print(schedules_set_final)
+        #print(schedules_set_final)
         schedules_set_final.sort(key=sortByElements, reverse=True)
         
         return render_template("myCourses.html", courses=courses, courses2=list(schedules_set_final))
